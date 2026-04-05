@@ -1,30 +1,26 @@
-# Harbor Path one-page site
+# Harbor Path non-clinical page
 
-Files included:
+Files:
 - `index.html`
 - `styles.css`
 - `script.js`
 
-## Deploy
-1. Upload these files to a GitHub repo.
-2. Import the repo into Vercel as a static site.
-3. No build step is required.
+## Use this version for
+A non-clinical Long Island landing page focused on:
+- IEP support
+- CPSE / CSE meeting help
+- parent advocacy
+- local network interest
 
-## Connect the forms
-This site uses simple HTML forms with Formspree placeholders.
+## Before you deploy
+Replace these Formspree placeholders in `index.html`:
+- `REPLACE_PARENT_SUPPORT_ID`
+- `REPLACE_NETWORK_ID`
 
-Open `index.html` and replace:
-- `https://formspree.io/f/REPLACE_FAMILY_ID`
-- `https://formspree.io/f/REPLACE_NETWORK_ID`
-
-with your real Formspree endpoints.
-
-## Quick edits
-- Change all public copy directly in `index.html`.
-- Change colors, spacing, and typography in `styles.css`.
-- Step-by-step form logic lives in `script.js`.
+## Upload to GitHub
+You can either:
+1. replace the files in your current `harbor-path` repo, or
+2. create a second repo such as `harbor-path-advocate` if you want to test a separate page.
 
 ## Notes
-- The layout is mobile-first.
-- Buttons and form fields are large for thumb use.
-- The bottom sticky CTA bar appears on phones only.
+This version avoids clinical claims and keeps the page in a non-clinical parent-support lane.

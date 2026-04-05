@@ -20,6 +20,7 @@
     const validateCurrentStep = () => {
       const activeStep = steps[currentStep];
       const fields = [...activeStep.querySelectorAll('input, textarea')];
+
       for (const field of fields) {
         if (!field.checkValidity()) {
           field.reportValidity();
@@ -53,8 +54,8 @@
       if (!validateCurrentStep()) return;
 
       const action = form.getAttribute('action') || '';
-      if (action.includes('REPLACE_FAMILY_ID') || action.includes('REPLACE_NETWORK_ID')) {
-        status.textContent = 'Replace the Formspree action in index.html before you go live.';
+      if (action.includes('REPLACE_PARENT_SUPPORT_ID') || action.includes('REPLACE_NETWORK_ID')) {
+        status.textContent = 'Replace the Formspree action in index.html before going live.';
         return;
       }
 
