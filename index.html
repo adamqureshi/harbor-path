@@ -3,1114 +3,288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Harbor Path — Autism Support & ABA Services</title>
-  <meta name="description" content="Private-pay autism support, parent coaching, telehealth intake, and ABA services through our clinical partner for families in Nassau and Suffolk County." />
-  <style>
-    :root {
-      --bg: #f6f4ee;
-      --card: #ffffff;
-      --ink: #111111;
-      --muted: #5a5a5a;
-      --line: #d9d4c6;
-      --accent: #0f2f5f;
-      --accent-2: #e9eef8;
-      --success: #0b7a45;
-      --radius: 26px;
-      --shadow: 0 16px 48px rgba(17,17,17,.08);
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.35;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .shell {
-      width: min(100%, var(--max));
-      margin: 0 auto;
-      padding: 0 18px;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(246,244,238,.78);
-      border-bottom: 1px solid rgba(17,17,17,.06);
-    }
-
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      font-size: 1rem;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(145deg, #0f2f5f 0%, #335f9b 100%);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 1rem;
-      font-weight: 900;
-      box-shadow: var(--shadow);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .mini-link {
-      display: none;
-      color: var(--muted);
-      font-size: .95rem;
-      font-weight: 600;
-    }
-
-    .btn, button {
-      appearance: none;
-      border: none;
-      cursor: pointer;
-      font: inherit;
-    }
-
-    .btn {
-      min-height: 52px;
-      padding: 0 18px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing: -.01em;
-      transition: transform .14s ease, opacity .14s ease, background .14s ease;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .btn:active { transform: translateY(1px) scale(.99); }
-    .btn-primary { background: var(--ink); color: white; }
-    .btn-secondary { background: var(--card); color: var(--ink); border: 1px solid rgba(17,17,17,.08); }
-    .btn-ghost { background: transparent; color: var(--muted); }
-    .btn-block { width: 100%; }
-
-    .hero {
-      padding: 28px 0 28px;
-    }
-
-    .hero-card {
-      min-height: calc(100svh - 108px);
-      background:
-        radial-gradient(circle at top right, rgba(15,47,95,.10), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.92) 100%);
-      border: 1px solid rgba(17,17,17,.06);
-      border-radius: 36px;
-      box-shadow: var(--shadow);
-      display: grid;
-      align-items: center;
-      padding: 26px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 28px;
-      grid-template-columns: 1fr;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--accent-2);
-      color: var(--accent);
-      font-size: .86rem;
-      font-weight: 800;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(2.2rem, 7vw, 4.9rem);
-      line-height: .95;
-      letter-spacing: -.06em;
-      max-width: 12ch;
-    }
-
-    .hero p.lead {
-      margin: 0;
-      max-width: 38rem;
-      font-size: clamp(1.02rem, 2.7vw, 1.26rem);
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .hero-copy-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .quick-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .quick-points div {
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(17,17,17,.06);
-      border-radius: 20px;
-      padding: 14px 16px;
-      font-weight: 700;
-    }
-
-    .hero-panel {
-      background: #fff;
-      border: 1px solid rgba(17,17,17,.07);
-      border-radius: 30px;
-      padding: 20px;
-      box-shadow: 0 20px 40px rgba(15,47,95,.08);
-    }
-
-    .hero-stat {
-      display: grid;
-      gap: 10px;
-    }
-
-    .hero-stat .label {
-      font-size: .88rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--muted);
-    }
-
-    .hero-stat .value {
-      font-size: clamp(2rem, 7vw, 3.4rem);
-      font-weight: 900;
-      letter-spacing: -.06em;
-      line-height: .95;
-    }
-
-    .hero-stat .copy {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .hero-list {
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .hero-list li {
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 18px;
-      padding: 15px 16px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      font-weight: 700;
-      background: #fafafa;
-    }
-
-    .hero-list li span {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: var(--accent-2);
-      color: var(--accent);
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      font-size: .95rem;
-    }
-
-    section.block {
-      padding: 28px 0;
-    }
-
-    .section-head {
-      margin-bottom: 18px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .section-kicker {
-      font-size: .84rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-weight: 900;
-      color: var(--accent);
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: clamp(1.8rem, 5.2vw, 3.3rem);
-      line-height: 1;
-      letter-spacing: -.05em;
-      max-width: 13ch;
-    }
-
-    .section-sub {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.6;
-      max-width: 44rem;
-    }
-
-    .offers {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .offer-card {
-      background: var(--card);
-      border: 1px solid rgba(17,17,17,.07);
-      border-radius: 28px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .offer-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 16px;
-      background: var(--accent-2);
-      color: var(--accent);
-      font-weight: 900;
-      margin-bottom: 14px;
-    }
-
-    .offer-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.38rem;
-      letter-spacing: -.03em;
-    }
-
-    .offer-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 1rem;
-    }
-
-    .split {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: 1fr;
-    }
-
-    .process-card, .team-card, .mvp-card, .contact-wrap {
-      background: var(--card);
-      border: 1px solid rgba(17,17,17,.07);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .steps {
-      display: grid;
-      gap: 12px;
-    }
-
-    .step {
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 22px;
-      padding: 16px;
-      background: #fafafa;
-    }
-
-    .step strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.02rem;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .team-lines {
-      display: grid;
-      gap: 12px;
-    }
-
-    .team-person {
-      border: 1px solid rgba(17,17,17,.08);
-      background: #fafafa;
-      border-radius: 20px;
-      padding: 16px;
-    }
-
-    .team-person h3 {
-      margin: 0 0 3px;
-      font-size: 1.08rem;
-      letter-spacing: -.02em;
-    }
-
-    .team-person p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .fine {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: .92rem;
-      line-height: 1.5;
-    }
-
-    .mvp-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .mvp-item {
-      padding: 16px;
-      background: #fafafa;
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 20px;
-    }
-
-    .mvp-item strong { display: block; margin-bottom: 6px; }
-    .mvp-item p { margin: 0; color: var(--muted); line-height: 1.55; }
-
-    .contact-wrap {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    .contact-copy {
-      padding: 24px;
-      background: linear-gradient(180deg, rgba(15,47,95,.03), rgba(15,47,95,.08));
-      border-bottom: 1px solid rgba(17,17,17,.06);
-    }
-
-    .contact-copy h3 {
-      margin: 0 0 12px;
-      font-size: clamp(1.7rem, 5vw, 2.8rem);
-      line-height: .98;
-      letter-spacing: -.05em;
-      max-width: 12ch;
-    }
-
-    .contact-copy p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 30rem;
-    }
-
-    .micro-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .micro-pills span {
-      display: inline-flex;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.8);
-      border: 1px solid rgba(17,17,17,.08);
-      font-size: .9rem;
-      font-weight: 700;
-    }
-
-    .form-shell {
-      padding: 20px;
-    }
-
-    .form-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .progress-text {
-      font-size: .9rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .progress-bar {
-      height: 8px;
-      width: 100%;
-      background: #ebe7dc;
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 10px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 14%;
-      background: var(--ink);
-      border-radius: 999px;
-      transition: width .24s ease;
-    }
-
-    form { margin: 0; }
-
-    .step-pane { display: none; }
-    .step-pane.active { display: block; animation: fade .18s ease; }
-
-    @keyframes fade {
-      from { opacity: .2; transform: translateY(6px); }
-      to { opacity: 1; transform: none; }
-    }
-
-    .prompt {
-      margin: 0 0 16px;
-      font-size: clamp(1.4rem, 5vw, 2rem);
-      line-height: 1.04;
-      letter-spacing: -.04em;
-      max-width: 12ch;
-    }
-
-    .helper {
-      margin: 0 0 16px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: .98rem;
-    }
-
-    .choice-grid {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr;
-    }
-
-    .choice {
-      min-height: 78px;
-      width: 100%;
-      padding: 18px;
-      text-align: left;
-      border-radius: 22px;
-      border: 1px solid rgba(17,17,17,.08);
-      background: #fff;
-      display: grid;
-      gap: 5px;
-    }
-
-    .choice strong { font-size: 1.05rem; letter-spacing: -.02em; }
-    .choice span { color: var(--muted); }
-    .choice.selected {
-      border-color: var(--ink);
-      box-shadow: inset 0 0 0 1px var(--ink);
-      background: #f8f8f8;
-    }
-
-    .field-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    label {
-      display: grid;
-      gap: 8px;
-      font-weight: 700;
-      font-size: .98rem;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      min-height: 60px;
-      border-radius: 18px;
-      border: 1px solid rgba(17,17,17,.12);
-      padding: 16px 18px;
-      font: inherit;
-      font-size: 1rem;
-      color: var(--ink);
-      background: #fff;
-      outline: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--ink);
-      box-shadow: 0 0 0 4px rgba(17,17,17,.07);
-    }
-
-    textarea { min-height: 136px; resize: vertical; }
-
-    .form-nav {
-      display: flex;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .summary-box {
-      border: 1px solid rgba(17,17,17,.08);
-      background: #fafafa;
-      border-radius: 20px;
-      padding: 16px;
-      display: grid;
-      gap: 8px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .summary-box strong { color: var(--ink); }
-
-    .note-box {
-      margin-top: 16px;
-      padding: 14px;
-      border-radius: 16px;
-      background: #f6fbf8;
-      color: var(--success);
-      display: none;
-      font-weight: 700;
-      border: 1px solid rgba(11,122,69,.12);
-    }
-
-    .footer {
-      padding: 18px 0 42px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .footer-card {
-      background: rgba(255,255,255,.7);
-      border: 1px solid rgba(17,17,17,.06);
-      border-radius: 24px;
-      padding: 18px;
-      line-height: 1.6;
-    }
-
-    .footer strong { color: var(--ink); }
-
-    @media (min-width: 760px) {
-      .mini-link { display: inline-flex; }
-      .hero-card { padding: 36px; }
-      .hero-grid { grid-template-columns: minmax(0, 1.18fr) minmax(320px, .82fr); gap: 24px; }
-      .offers { grid-template-columns: repeat(2, 1fr); }
-      .split { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: .9fr 1.1fr; }
-      .contact-copy { border-bottom: 0; border-right: 1px solid rgba(17,17,17,.06); }
-      .choice-grid.two { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (min-width: 1080px) {
-      .offers { grid-template-columns: repeat(4, 1fr); }
-    }
-  </style>
+  <title>Harbor Path | Autism Support in Bellport, NY</title>
+  <meta name="description" content="Harbor Path is a Bellport, NY autism support brand serving Nassau and Suffolk County with simple next steps for families and a growing RBT/LBA network." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="#top" aria-label="Harbor Path home">
-        <span class="brand-mark">HP</span>
-        <span>Harbor Path</span>
-      </a>
-      <div class="nav-actions">
-        <a class="mini-link" href="#offerings">What We Offer</a>
-        <a class="mini-link" href="#contact">Contact</a>
-        <a class="btn btn-primary" href="#contact">Get Started</a>
-      </div>
-    </div>
+  <header class="topbar">
+    <a href="#top" class="brand" aria-label="Harbor Path home">
+      <span class="brand-mark">HP</span>
+      <span class="brand-text">
+        <strong>Harbor Path</strong>
+        <small>Bellport, NY</small>
+      </span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#offer">What We Offer</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#network">Join Our Network</a>
+    </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="shell">
-        <div class="hero-card">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <span class="eyebrow">Launching in Nassau + Suffolk</span>
-              <h1>Simple autism support. Real people. Fast next steps.</h1>
-              <p class="lead">
-                Private-pay autism support, parent coaching, telehealth intake, and ABA services through our clinical partner — built to feel local, responsive, and easy for families to start.
-              </p>
-              <div class="hero-copy-actions">
-                <a class="btn btn-primary" href="#contact">Join the first families</a>
-                <a class="btn btn-secondary" href="#offerings">See what we offer</a>
-              </div>
-              <div class="quick-points">
-                <div>Private pay first. Insurance enrollment in progress.</div>
-                <div>Phone-first intake with large, simple forms.</div>
-                <div>Telehealth for intake, parent training, and ongoing check-ins.</div>
-              </div>
-            </div>
-
-            <aside class="hero-panel" aria-label="Launch snapshot">
-              <div class="hero-stat">
-                <span class="label">The idea</span>
-                <span class="value">Boutique, high-trust care</span>
-                <p class="copy">
-                  Start with a tight local service radius, fast response time, and a better family experience than giant platforms.
-                </p>
-              </div>
-              <ul class="hero-list">
-                <li><span>1</span><div>In-home and community-based support where families already live life.</div></li>
-                <li><span>2</span><div>Founder-led communication, scheduling, and follow-through.</div></li>
-                <li><span>3</span><div>Private-pay launch now, payer setup next, telehealth layered in from day one.</div></li>
-              </ul>
-            </aside>
-          </div>
+    <section class="hero section section-dark">
+      <div class="wrap hero-wrap">
+        <p class="eyebrow">BELLPORT, NY • NASSAU + SUFFOLK COUNTY</p>
+        <h1>Simple autism support.<br>Clear next steps.<br>Local people.</h1>
+        <p class="lede">
+          Harbor Path helps families get started and helps RBTs and LBAs join a local care network.
+          Private-pay support now. More options coming soon.
+        </p>
+        <div class="cta-stack" role="group" aria-label="Main actions">
+          <a class="button button-light" href="#contact">Get Support for Your Child</a>
+          <a class="button button-outline-light" href="#network">Join Our RBT/LBA Network</a>
         </div>
+        <ul class="hero-points" aria-label="Key points">
+          <li>Fast local response</li>
+          <li>Big, simple forms</li>
+          <li>Phone-friendly from start to finish</li>
+        </ul>
       </div>
     </section>
 
-    <section id="offerings" class="block">
-      <div class="shell">
-        <div class="section-head">
-          <span class="section-kicker">What We Offer</span>
-          <h2 class="section-title">Start narrow. Deliver it well.</h2>
-          <p class="section-sub">
-            The MVP is intentionally focused: fast intake, private-pay launch, telehealth support, and a high-touch family experience. Bigger services can follow once the clinical structure and payer setup are fully in place.
+    <section id="offer" class="section section-light">
+      <div class="wrap stack-xl">
+        <div class="section-intro">
+          <p class="eyebrow eyebrow-dark">WHAT WE OFFER</p>
+          <h2>Built to be easy for families.</h2>
+          <p>
+            We keep the first step simple. Start with a call or a short form. We follow up, explain the next step,
+            and help you move forward.
           </p>
         </div>
 
-        <div class="offers">
-          <article class="offer-card">
-            <div class="offer-index">01</div>
-            <h3>Private-Pay Intake</h3>
-            <p>Quick discovery call, family goals review, service fit check, and clear next steps without a giant intake maze.</p>
+        <div class="offer-grid">
+          <article class="offer-item">
+            <h3>Autism support</h3>
+            <p>Clear next steps for families looking for help at home, in the community, or by telehealth.</p>
           </article>
-          <article class="offer-card">
-            <div class="offer-index">02</div>
-            <h3>ABA Services</h3>
-            <p>ABA care delivered through our clinical partner structure, with technician support, parent communication, and consistent follow-through.</p>
+          <article class="offer-item">
+            <h3>Parent guidance</h3>
+            <p>Simple support for caregivers who want structure, communication tools, and a plan.</p>
           </article>
-          <article class="offer-card">
-            <div class="offer-index">03</div>
-            <h3>Telehealth Support</h3>
-            <p>Telehealth intake, parent coaching, care coordination, and clinical check-ins to make access easier for busy families.</p>
+          <article class="offer-item">
+            <h3>Care team matching</h3>
+            <p>We are building a local RBT and LBA network so families can connect with real people nearby.</p>
           </article>
-          <article class="offer-card">
-            <div class="offer-index">04</div>
-            <h3>School Collaboration</h3>
-            <p>With parent permission, we help families communicate goals, routines, and practical carryover across home, school, and community.</p>
+          <article class="offer-item">
+            <h3>Phone-first intake</h3>
+            <p>Large tap targets, short steps, and fast follow-up. No crowded forms or hard-to-read pages.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="block">
-      <div class="shell split">
-        <article class="process-card">
-          <div class="section-head">
-            <span class="section-kicker">How It Works</span>
-            <h2 class="section-title">A cleaner first experience.</h2>
-            <p class="section-sub">Families should not have to decode the system before they can get help.</p>
-          </div>
-          <div class="steps">
-            <div class="step">
-              <strong>1. Reach out</strong>
-              <p>Start on your phone. Tell us where you live, what kind of support you need, and what feels urgent right now.</p>
+    <section class="section section-contrast">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow eyebrow-dark">HOW IT WORKS</p>
+          <h2>Three easy steps.</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-number">1</span>
+            <div>
+              <strong>Choose your path</strong>
+              <p>Pick family support or clinician interest.</p>
             </div>
-            <div class="step">
-              <strong>2. Get a real response</strong>
-              <p>We review fit, walk through private-pay options, and explain what can happen next — including telehealth and in-home possibilities.</p>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div>
+              <strong>Fill out a short form</strong>
+              <p>Each form moves step by step on your phone.</p>
             </div>
-            <div class="step">
-              <strong>3. Build the right start</strong>
-              <p>Instead of overbuilding, we begin with the simplest path that helps your child and your family move forward.</p>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div>
+              <strong>We follow up</strong>
+              <p>We reach out with next steps and availability.</p>
             </div>
-          </div>
-        </article>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-        <article class="team-card">
-          <div class="section-head">
-            <span class="section-kicker">Built By</span>
-            <h2 class="section-title">Local operators who care about the details.</h2>
+    <section id="contact" class="section section-accent">
+      <div class="wrap form-wrap">
+        <div class="section-intro">
+          <p class="eyebrow">CONTACT US</p>
+          <h2>Get support for your child.</h2>
+          <p>Tell us a little bit about your family. The form below is short and phone-friendly.</p>
+        </div>
+
+        <form class="step-form" id="family-form" method="POST" action="https://formspree.io/f/REPLACE_FAMILY_ID" novalidate>
+          <input type="hidden" name="form_type" value="family" />
+          <div class="progress" aria-hidden="true">
+            <span class="progress-dot is-active"></span>
+            <span class="progress-dot"></span>
           </div>
-          <div class="team-lines">
-            <div class="team-person">
-              <h3>Adam Qureshi</h3>
-              <p>Founder · Tech, marketing, operations, and growth. Building the intake engine, brand, and family experience.</p>
+
+          <section class="form-step is-active" data-step="1">
+            <label class="field">
+              <span>Your name</span>
+              <input type="text" name="parent_name" placeholder="Parent or guardian name" autocomplete="name" required />
+            </label>
+
+            <fieldset class="choice-group">
+              <legend>Child age range</legend>
+              <div class="choice-grid">
+                <label class="choice"><input type="radio" name="child_age" value="0-3" required><span>0–3</span></label>
+                <label class="choice"><input type="radio" name="child_age" value="4-7"><span>4–7</span></label>
+                <label class="choice"><input type="radio" name="child_age" value="8-12"><span>8–12</span></label>
+                <label class="choice"><input type="radio" name="child_age" value="13+"><span>13+</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="choice-group">
+              <legend>What do you need most?</legend>
+              <div class="choice-grid">
+                <label class="choice"><input type="radio" name="support_need" value="Autism support" required><span>Autism support</span></label>
+                <label class="choice"><input type="radio" name="support_need" value="Parent guidance"><span>Parent guidance</span></label>
+                <label class="choice"><input type="radio" name="support_need" value="Telehealth"><span>Telehealth</span></label>
+                <label class="choice"><input type="radio" name="support_need" value="Not sure yet"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <button class="button button-dark button-block next-step" type="button">Next step</button>
+          </section>
+
+          <section class="form-step" data-step="2" hidden>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </label>
+
+            <label class="field">
+              <span>Phone</span>
+              <input type="tel" name="phone" placeholder="Best number to reach you" autocomplete="tel" required />
+            </label>
+
+            <label class="field">
+              <span>Town or ZIP</span>
+              <input type="text" name="location" placeholder="Bellport, Patchogue, Sayville, Hempstead..." autocomplete="postal-code" required />
+            </label>
+
+            <label class="field">
+              <span>Anything else you want us to know?</span>
+              <textarea name="message" rows="4" placeholder="A short note is enough."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="button button-ghost prev-step" type="button">Back</button>
+              <button class="button button-dark" type="submit">Send request</button>
             </div>
-            <div class="team-person">
-              <h3>Kathryn Qureshi, RBT</h3>
-              <p>Registered Behavior Technician · Family communication, service operations, technician perspective, and day-to-day care experience.</p>
-            </div>
-            <div class="team-person">
-              <h3>Clinical Partner</h3>
-              <p>ABA clinical leadership in setup. Final clinical structure and New York licensure details should be confirmed before launch.</p>
-            </div>
-          </div>
-          <p class="fine">
-            Public-facing note: in New York, clinical ABA services should be delivered through the properly licensed clinical entity, while the business entity handles non-clinical operations and marketing.
+          </section>
+
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="network" class="section section-dark-alt">
+      <div class="wrap form-wrap">
+        <div class="section-intro">
+          <p class="eyebrow">RBT / LBA NETWORK</p>
+          <h2>Join our local care network.</h2>
+          <p>
+            We are building a small, local network for RBTs, LBAs, and BCBAs who want to work with families in Nassau and Suffolk County.
           </p>
-        </article>
+        </div>
+
+        <form class="step-form step-form-dark" id="network-form" method="POST" action="https://formspree.io/f/REPLACE_NETWORK_ID" novalidate>
+          <input type="hidden" name="form_type" value="clinician" />
+          <div class="progress" aria-hidden="true">
+            <span class="progress-dot is-active"></span>
+            <span class="progress-dot"></span>
+          </div>
+
+          <section class="form-step is-active" data-step="1">
+            <label class="field">
+              <span>Your name</span>
+              <input type="text" name="clinician_name" placeholder="Full name" autocomplete="name" required />
+            </label>
+
+            <fieldset class="choice-group">
+              <legend>Your role</legend>
+              <div class="choice-grid">
+                <label class="choice"><input type="radio" name="credential" value="RBT" required><span>RBT</span></label>
+                <label class="choice"><input type="radio" name="credential" value="LBA"><span>LBA</span></label>
+                <label class="choice"><input type="radio" name="credential" value="BCBA"><span>BCBA</span></label>
+                <label class="choice"><input type="radio" name="credential" value="Other"><span>Other</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="choice-group">
+              <legend>Work interest</legend>
+              <div class="choice-grid">
+                <label class="choice"><input type="radio" name="work_type" value="Part-time" required><span>Part-time</span></label>
+                <label class="choice"><input type="radio" name="work_type" value="Contract"><span>Contract</span></label>
+                <label class="choice"><input type="radio" name="work_type" value="Full-time"><span>Full-time</span></label>
+                <label class="choice"><input type="radio" name="work_type" value="Not sure yet"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <button class="button button-light button-block next-step" type="button">Next step</button>
+          </section>
+
+          <section class="form-step" data-step="2" hidden>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </label>
+
+            <label class="field">
+              <span>Phone</span>
+              <input type="tel" name="phone" placeholder="Best number to reach you" autocomplete="tel" required />
+            </label>
+
+            <label class="field">
+              <span>Service area</span>
+              <input type="text" name="service_area" placeholder="Bellport, Nassau County, Suffolk County..." required />
+            </label>
+
+            <label class="field">
+              <span>Short note</span>
+              <textarea name="message" rows="4" placeholder="Share availability, experience, or what kind of role you want."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="button button-ghost-light prev-step" type="button">Back</button>
+              <button class="button button-light" type="submit">Join the network</button>
+            </div>
+          </section>
+
+          <p class="form-status form-status-light" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
-    <section class="block">
-      <div class="shell">
-        <article class="mvp-card">
-          <div class="section-head">
-            <span class="section-kicker">MVP</span>
-            <h2 class="section-title">What we launch first.</h2>
-            <p class="section-sub">The first version is built to test demand, collect feedback, and start conversations — not to overpromise.</p>
-          </div>
-          <div class="mvp-list">
-            <div class="mvp-item">
-              <strong>Private-pay launch</strong>
-              <p>Start with private-pay families so the business can move quickly while insurance credentialing is handled in parallel.</p>
-            </div>
-            <div class="mvp-item">
-              <strong>Tight geography</strong>
-              <p>Cover Nassau + Suffolk first, with an initial operating focus around the South Shore where you already have trust and relationships.</p>
-            </div>
-            <div class="mvp-item">
-              <strong>Phone-first funnel</strong>
-              <p>One page, one clear message, one simple contact flow. No clutter, no tiny fields, no giant multi-step application.</p>
-            </div>
-            <div class="mvp-item">
-              <strong>Clinician recruiting baked in</strong>
-              <p>The same page can collect parent interest, clinician interest, and partner/investor conversations while the brand is still early.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="block">
-      <div class="shell">
-        <article class="contact-wrap">
-          <div class="contact-grid">
-            <div class="contact-copy">
-              <span class="section-kicker">Contact Us</span>
-              <h3>Tell us who you are and what you need.</h3>
-              <p>
-                This form is designed for thumbs, not clipboards. One step at a time. Parents, clinicians, and partners can all use the same flow.
-              </p>
-              <div class="micro-pills">
-                <span>Parents</span>
-                <span>RBTs / BCBAs</span>
-                <span>Partners / Investors</span>
-              </div>
-            </div>
-
-            <div class="form-shell">
-              <div class="form-top">
-                <div>
-                  <div class="progress-text" id="progressText">Step 1 of 7</div>
-                  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-                </div>
-              </div>
-
-              <form id="leadForm" novalidate>
-                <input type="hidden" name="interest_type" id="interestType" />
-
-                <div class="step-pane active" data-step="1">
-                  <h3 class="prompt">What brings you here?</h3>
-                  <p class="helper">Pick the option that fits best. The form will adjust itself.</p>
-                  <div class="choice-grid">
-                    <button class="choice" type="button" data-choice="Parent / Family">
-                      <strong>I’m a parent or caregiver</strong>
-                      <span>I want to learn about services for my child.</span>
-                    </button>
-                    <button class="choice" type="button" data-choice="Clinician">
-                      <strong>I’m a clinician</strong>
-                      <span>I’m interested in joining, contracting, or learning more.</span>
-                    </button>
-                    <button class="choice" type="button" data-choice="Partner / Investor">
-                      <strong>I’m a partner or investor</strong>
-                      <span>I want to talk about the business, referrals, or the raise.</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div class="step-pane" data-step="2">
-                  <h3 class="prompt">What’s your name?</h3>
-                  <p class="helper">We’ll use this so we can reply like real humans.</p>
-                  <div class="field-grid">
-                    <label>
-                      Full name
-                      <input id="fullName" name="full_name" type="text" placeholder="Your full name" autocomplete="name" />
-                    </label>
-                  </div>
-                </div>
-
-                <div class="step-pane" data-step="3">
-                  <h3 class="prompt">What’s the best email?</h3>
-                  <p class="helper">We’ll send next steps and reply there first.</p>
-                  <div class="field-grid">
-                    <label>
-                      Email address
-                      <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" />
-                    </label>
-                  </div>
-                </div>
-
-                <div class="step-pane" data-step="4">
-                  <h3 class="prompt">What’s the best phone number?</h3>
-                  <p class="helper">Optional, but helpful if you want a faster follow-up.</p>
-                  <div class="field-grid">
-                    <label>
-                      Mobile number
-                      <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" autocomplete="tel" inputmode="tel" />
-                    </label>
-                  </div>
-                </div>
-
-                <div class="step-pane" data-step="5">
-                  <h3 class="prompt" id="dynamicPrompt">Where are you located?</h3>
-                  <p class="helper" id="dynamicHelper">We’re starting in Nassau and Suffolk County.</p>
-                  <div class="field-grid">
-                    <label>
-                      City or town
-                      <input id="locationField" name="location" type="text" placeholder="Bellport, Westhampton, Massapequa…" autocomplete="address-level2" />
-                    </label>
-                    <label id="optionalFieldWrap">
-                      <span id="optionalLabel">Child age or service need</span>
-                      <input id="optionalField" name="context" type="text" placeholder="Age 5, parent coaching, RBT role, investment interest…" />
-                    </label>
-                  </div>
-                </div>
-
-                <div class="step-pane" data-step="6">
-                  <h3 class="prompt">What should we know before we reply?</h3>
-                  <p class="helper">Keep it simple. A few lines is enough.</p>
-                  <div class="field-grid">
-                    <label>
-                      Notes
-                      <textarea id="notes" name="notes" placeholder="Tell us what you’re looking for, what kind of schedule you need, or what part of the idea you want to discuss."></textarea>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="step-pane" data-step="7">
-                  <h3 class="prompt">Ready to send?</h3>
-                  <p class="helper">Here’s a quick summary. If this looks right, tap submit.</p>
-                  <div class="summary-box" id="summaryBox"></div>
-                  <div class="note-box" id="successBox">
-                    Thanks — your message is ready. Connect this form to Formspree, Basin, or your preferred endpoint before going live.
-                  </div>
-                </div>
-
-                <div class="form-nav">
-                  <button class="btn btn-secondary" type="button" id="backBtn">Back</button>
-                  <button class="btn btn-primary btn-block" type="button" id="nextBtn">Next</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </article>
+    <section class="section section-light">
+      <div class="wrap footer-cta">
+        <div>
+          <p class="eyebrow eyebrow-dark">HARBOR PATH</p>
+          <h2>Bellport-based. Built for simple next steps.</h2>
+          <p>Use the form that fits you best. We will take it from there.</p>
+        </div>
+        <div class="cta-stack cta-stack-footer" role="group" aria-label="Footer actions">
+          <a class="button button-dark" href="#contact">Get Support for Your Child</a>
+          <a class="button button-outline-dark" href="#network">Join Our RBT/LBA Network</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="shell">
-      <div class="footer-card">
-        <strong>Draft launch page.</strong> Replace the placeholder brand and final clinical language once the New York clinical entity, licensure, email/domain, and form endpoint are confirmed. Suggested use: deploy this as a fast MVP, collect early feedback, then tighten the wording before paid traffic.
-      </div>
-    </div>
-  </footer>
+  <div class="mobile-cta" aria-label="Sticky actions">
+    <a class="button button-light" href="#contact">Get Support</a>
+    <a class="button button-outline-light" href="#network">Join Network</a>
+  </div>
 
-  <script>
-    const totalSteps = 7;
-    let currentStep = 1;
-    const form = document.getElementById('leadForm');
-    const panes = [...document.querySelectorAll('.step-pane')];
-    const nextBtn = document.getElementById('nextBtn');
-    const backBtn = document.getElementById('backBtn');
-    const progressText = document.getElementById('progressText');
-    const progressFill = document.getElementById('progressFill');
-    const interestTypeInput = document.getElementById('interestType');
-    const choiceButtons = [...document.querySelectorAll('.choice')];
-    const dynamicPrompt = document.getElementById('dynamicPrompt');
-    const dynamicHelper = document.getElementById('dynamicHelper');
-    const optionalLabel = document.getElementById('optionalLabel');
-    const optionalField = document.getElementById('optionalField');
-    const summaryBox = document.getElementById('summaryBox');
-    const successBox = document.getElementById('successBox');
-
-    const fields = {
-      fullName: document.getElementById('fullName'),
-      email: document.getElementById('email'),
-      phone: document.getElementById('phone'),
-      location: document.getElementById('locationField'),
-      notes: document.getElementById('notes')
-    };
-
-    function renderStep() {
-      panes.forEach((pane, idx) => pane.classList.toggle('active', idx + 1 === currentStep));
-      progressText.textContent = `Step ${currentStep} of ${totalSteps}`;
-      progressFill.style.width = `${(currentStep / totalSteps) * 100}%`;
-      backBtn.style.visibility = currentStep === 1 ? 'hidden' : 'visible';
-      nextBtn.textContent = currentStep === totalSteps ? 'Submit' : 'Next';
-      successBox.style.display = 'none';
-
-      if (currentStep === 7) {
-        buildSummary();
-      }
-
-      const activeInput = panes[currentStep - 1].querySelector('input, textarea, select');
-      if (activeInput) setTimeout(() => activeInput.focus(), 80);
-    }
-
-    function setDynamicCopy() {
-      const choice = interestTypeInput.value;
-      if (choice === 'Parent / Family') {
-        dynamicPrompt.textContent = 'Where do you need support?';
-        dynamicHelper.textContent = 'Town or area is enough for now.';
-        optionalLabel.textContent = 'Child age or current service stage';
-        optionalField.placeholder = 'Age 4, newly diagnosed, waitlist, parent coaching...';
-      } else if (choice === 'Clinician') {
-        dynamicPrompt.textContent = 'Where are you available to work?';
-        dynamicHelper.textContent = 'Tell us your service area or preferred radius.';
-        optionalLabel.textContent = 'Role or credential';
-        optionalField.placeholder = 'RBT, BCBA, LBA, speech, parent training...';
-      } else {
-        dynamicPrompt.textContent = 'Where are you based?';
-        dynamicHelper.textContent = 'City, company, or preferred market is fine.';
-        optionalLabel.textContent = 'What kind of conversation do you want?';
-        optionalField.placeholder = 'Investment, referral partnership, advisory, strategy...';
-      }
-    }
-
-    function validateCurrentStep() {
-      if (currentStep === 1) {
-        return Boolean(interestTypeInput.value);
-      }
-      if (currentStep === 2) {
-        return fields.fullName.value.trim().length >= 2;
-      }
-      if (currentStep === 3) {
-        return /^\S+@\S+\.\S+$/.test(fields.email.value.trim());
-      }
-      if (currentStep === 4) {
-        return true;
-      }
-      if (currentStep === 5) {
-        return fields.location.value.trim().length >= 2;
-      }
-      if (currentStep === 6) {
-        return true;
-      }
-      return true;
-    }
-
-    function buildSummary() {
-      const lines = [
-        `<div><strong>Interest:</strong> ${interestTypeInput.value || '—'}</div>`,
-        `<div><strong>Name:</strong> ${fields.fullName.value || '—'}</div>`,
-        `<div><strong>Email:</strong> ${fields.email.value || '—'}</div>`,
-        `<div><strong>Phone:</strong> ${fields.phone.value || '—'}</div>`,
-        `<div><strong>Location:</strong> ${fields.location.value || '—'}</div>`,
-        `<div><strong>Extra:</strong> ${optionalField.value || '—'}</div>`,
-        `<div><strong>Notes:</strong> ${fields.notes.value || '—'}</div>`
-      ];
-      summaryBox.innerHTML = lines.join('');
-    }
-
-    function submitFallback() {
-      const payload = {
-        interest_type: interestTypeInput.value,
-        full_name: fields.fullName.value,
-        email: fields.email.value,
-        phone: fields.phone.value,
-        location: fields.location.value,
-        context: optionalField.value,
-        notes: fields.notes.value,
-        created_at: new Date().toISOString()
-      };
-
-      const subject = encodeURIComponent(`Harbor Path lead: ${payload.interest_type || 'New inquiry'}`);
-      const body = encodeURIComponent(Object.entries(payload).map(([k,v]) => `${k}: ${v || ''}`).join('\n'));
-      successBox.style.display = 'block';
-      successBox.textContent = 'Preview mode: this form is ready. Replace the fallback with your live endpoint, or tap again after wiring your email workflow.';
-
-      try {
-        navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
-      } catch (e) {}
-
-      window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    }
-
-    choiceButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        choiceButtons.forEach(other => other.classList.remove('selected'));
-        btn.classList.add('selected');
-        interestTypeInput.value = btn.dataset.choice;
-        setDynamicCopy();
-      });
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (!validateCurrentStep()) {
-        const activePane = panes[currentStep - 1];
-        const firstField = activePane.querySelector('input, textarea');
-        if (firstField) firstField.focus();
-        return;
-      }
-
-      if (currentStep < totalSteps) {
-        currentStep += 1;
-        renderStep();
-      } else {
-        buildSummary();
-        submitFallback();
-      }
-    });
-
-    backBtn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        currentStep -= 1;
-        renderStep();
-      }
-    });
-
-    renderStep();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
