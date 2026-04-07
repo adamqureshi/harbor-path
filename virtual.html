@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual ABA Therapy & Autism Support | Harbor Path</title>
+  <meta name="description" content="Harbor Path virtual ABA therapy and autism support page for New York families." />
+  <style>
+    :root{
+      --bg:#f5f2ed;
+      --surface:#ffffff;
+      --soft:#eef3ff;
+      --ink:#191726;
+      --muted:#5f6578;
+      --line:rgba(25,23,38,.11);
+      --navy:#1a1744;
+      --blue:#435df0;
+      --purple:#9b4de8;
+      --purple2:#c05cf3;
+      --green:#1aa37d;
+      --amber:#f2b544;
+      --shadow:0 24px 64px rgba(29,24,58,.12);
+      --radius:26px;
+      --radius-sm:18px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    h1,h2,h3,h4{
+      margin:0;
+      font-family:Georgia, "Times New Roman", serif;
+      letter-spacing:-.04em;
+      line-height:.98;
+    }
+    p{margin:0}
+    a{text-decoration:none;color:inherit}
+    .wrap{
+      width:min(100%, var(--max));
+      margin:0 auto;
+      padding:0 24px;
+    }
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(245,242,237,.9);
+      border-bottom:1px solid rgba(25,23,38,.08);
+    }
+    .topbar-inner{
+      min-height:74px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800}
+    .brand-mark{
+      width:44px; height:44px; border-radius:14px; display:grid; place-items:center;
+      background:var(--navy); color:#fff; font-weight:900; letter-spacing:-.04em;
+    }
+    .brand-copy{display:grid; gap:2px}
+    .brand-copy strong{font-size:1rem; letter-spacing:-.03em}
+    .brand-copy span{font-size:.84rem; color:var(--muted); font-weight:700}
+    .nav{display:flex; align-items:center; gap:22px; color:var(--muted); font-weight:700}
+    .nav a:hover,.nav a:focus-visible{color:var(--ink)}
+    .button{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:56px; padding:0 24px; border-radius:999px;
+      border:1px solid transparent; font-weight:800; font-size:1rem;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .button:hover,.button:focus-visible{transform:translateY(-1px)}
+    .button-primary{
+      background:linear-gradient(135deg, var(--purple), var(--purple2));
+      color:#fff; box-shadow:0 16px 36px rgba(155,77,232,.28);
+    }
+    .button-secondary{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.28);
+      color:#fff;
+    }
+    .button-outline{
+      background:transparent; color:var(--ink); border-color:rgba(25,23,38,.14);
+    }
+    .button-light{
+      background:#fff; color:var(--navy); border-color:rgba(26,23,68,.08);
+    }
+    .hero{
+      position:relative; overflow:hidden;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255,255,255,.16), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,.16), transparent 24%),
+        linear-gradient(135deg, var(--navy) 0%, var(--blue) 58%, #6273f1 100%);
+      color:#fff;
+    }
+    .hero:before,.hero:after{
+      content:""; position:absolute; border-radius:999px;
+      background:rgba(255,255,255,.1);
+    }
+    .hero:before{width:420px;height:420px;right:-140px;top:-140px}
+    .hero:after{width:560px;height:560px;left:-240px;bottom:-280px}
+    .hero-grid{
+      position:relative; z-index:1;
+      display:grid; grid-template-columns:1.08fr .92fr; gap:40px; align-items:center;
+      min-height:720px; padding:74px 0 90px;
+    }
+    .eyebrow{
+      display:inline-block; margin-bottom:18px;
+      text-transform:uppercase; letter-spacing:.14em; font-size:.88rem; font-weight:900;
+      color:rgba(255,255,255,.76);
+    }
+    .hero h1{
+      font-size:clamp(3rem, 6.3vw, 5.5rem); max-width:10ch; margin-bottom:18px;
+    }
+    .hero .lede{
+      max-width:43rem; font-size:clamp(1.08rem, 2vw, 1.34rem);
+      color:rgba(255,255,255,.88); margin-bottom:24px;
+    }
+    .hero-points{
+      list-style:none; padding:0; margin:0 0 28px;
+      display:grid; gap:14px; max-width:48rem;
+    }
+    .hero-points li{
+      display:grid; grid-template-columns:28px 1fr; gap:14px; align-items:start;
+      padding:16px 18px; border-radius:18px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(10px);
+    }
+    .check{
+      width:28px; height:28px; border-radius:999px; display:grid; place-items:center;
+      background:rgba(255,255,255,.18); font-weight:900;
+    }
+    .hero-actions{display:flex; gap:14px; flex-wrap:wrap}
+    .hero-card{
+      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.16);
+      border-radius:30px; padding:28px; box-shadow:0 24px 70px rgba(18,16,43,.24);
+      backdrop-filter:blur(12px);
+    }
+    .hero-card h3{font-size:clamp(2rem, 4vw, 2.8rem); margin-bottom:14px}
+    .hero-card p{color:rgba(255,255,255,.84); margin-bottom:18px}
+    .mini-grid{display:grid; gap:14px}
+    .mini-item{
+      padding:16px 18px; border-radius:18px; background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .mini-item strong{display:block; margin-bottom:4px; font-size:1rem}
+    .mini-item span{color:rgba(255,255,255,.78); font-size:.96rem}
+    .section{padding:88px 0}
+    .section h2{
+      font-size:clamp(2.2rem, 4.8vw, 4rem); margin-bottom:16px;
+      color:var(--navy); max-width:12ch;
+    }
+    .section-intro{display:grid; gap:14px; margin-bottom:36px}
+    .section-intro p{max-width:52rem; color:var(--muted); font-size:1.08rem}
+    .section .eyebrow{color:#6a7183; margin-bottom:8px}
+    .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px}
+    .card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:26px;
+    }
+    .card-icon{
+      width:56px; height:56px; border-radius:18px; display:grid; place-items:center;
+      margin-bottom:18px; background:linear-gradient(135deg, #edf1ff, #fff);
+      color:var(--blue); font-size:1.5rem;
+    }
+    .card h3{font-size:1.7rem; color:var(--navy); margin-bottom:10px}
+    .card p{color:var(--muted)}
+    .muted-block{background:linear-gradient(180deg, #fbfaf7, #f6f3ee)}
+    .split{display:grid; grid-template-columns:1.02fr .98fr; gap:26px; align-items:start}
+    .list-card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:30px;
+    }
+    .list-card.good{border-top:5px solid var(--green)}
+    .list-card.watch{border-top:5px solid var(--amber)}
+    .list-card h3{font-size:2rem; color:var(--navy); margin-bottom:14px}
+    .list{list-style:none; padding:0; margin:0; display:grid; gap:12px}
+    .list li{display:grid; grid-template-columns:28px 1fr; gap:12px; color:var(--muted)}
+    .list-badge{
+      width:28px; height:28px; border-radius:999px; display:grid; place-items:center;
+      background:var(--blue); color:#fff; font-weight:900; font-size:.9rem; margin-top:2px;
+    }
+    .steps{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px}
+    .step{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      padding:26px; box-shadow:var(--shadow);
+    }
+    .step-number{
+      display:inline-block; font-family:Georgia, "Times New Roman", serif;
+      font-size:3rem; line-height:1; color:var(--blue); margin-bottom:16px;
+    }
+    .step h3{font-size:1.8rem; color:var(--navy); margin-bottom:10px}
+    .step p{color:var(--muted)}
+    .cta-band{
+      background:linear-gradient(135deg, var(--navy) 0%, #202b67 55%, #5265f1 100%);
+      color:#fff; border-radius:36px; padding:38px;
+      display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center;
+      box-shadow:0 26px 80px rgba(34,31,78,.24);
+    }
+    .cta-band h3{font-size:clamp(2rem, 4vw, 3rem); margin-bottom:10px}
+    .cta-band p{color:rgba(255,255,255,.82); max-width:46rem}
+    .form-shell{display:grid; grid-template-columns:.9fr 1.1fr; gap:28px; align-items:start}
+    .info-panel{
+      background:linear-gradient(180deg, #f4f7ff, #fff); border:1px solid rgba(67,93,240,.12);
+      border-radius:32px; padding:30px; box-shadow:var(--shadow);
+    }
+    .info-panel h3,.form-card h3{font-size:2.2rem; color:var(--navy); margin-bottom:12px}
+    .info-panel p,.form-card > p{color:var(--muted)}
+    .form-card{
+      background:var(--surface); border:1px solid var(--line); border-radius:32px;
+      box-shadow:var(--shadow); padding:30px;
+    }
+    .form-card > p{margin-bottom:22px}
+    .grid-2{display:grid; grid-template-columns:repeat(2, 1fr); gap:16px}
+    .field{display:grid; gap:8px; margin-bottom:16px}
+    .field label{font-weight:800; font-size:.96rem; letter-spacing:-.02em}
+    .field input,.field select,.field textarea{
+      width:100%; min-height:58px; padding:14px 16px; border-radius:16px;
+      border:1px solid rgba(25,23,38,.14); background:#fff; color:var(--ink); font:inherit;
+    }
+    .field textarea{min-height:130px; resize:vertical}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px; min-height:36px; padding:0 14px;
+      border-radius:999px; background:#f5f7ff; border:1px solid rgba(67,93,240,.12);
+      color:var(--muted); font-size:.92rem; font-weight:700;
+    }
+    .form-meta{display:flex; gap:12px; flex-wrap:wrap; margin:4px 0 18px}
+    .status{min-height:24px; margin-top:14px; font-weight:700; color:#284793}
+    .fine-print{margin-top:16px; color:var(--muted); font-size:.9rem}
+    .faq{display:grid; grid-template-columns:repeat(2, 1fr); gap:18px}
+    .faq .card h3{font-size:1.45rem; margin-bottom:12px}
+    .footer{padding:36px 0 56px; color:var(--muted); font-size:.95rem}
+    .footer-inner{
+      display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+    }
+    .field input:focus,.field select:focus,.field textarea:focus,.button:focus-visible,.nav a:focus-visible{
+      outline:3px solid rgba(67,93,240,.35); outline-offset:2px;
+    }
+    @media (max-width:1080px){
+      .hero-grid{grid-template-columns:1fr; min-height:auto}
+      .hero h1{max-width:11ch}
+      .cards,.steps,.faq{grid-template-columns:1fr 1fr}
+      .split,.form-shell,.cta-band{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .wrap{padding:0 18px}
+      .nav{display:none}
+      .cards,.split,.steps,.grid-2,.faq{grid-template-columns:1fr}
+      .hero-grid{padding:46px 0 64px}
+      .hero h1{max-width:100%}
+      .hero-actions{display:grid; grid-template-columns:1fr}
+      .button{width:100%}
+      .hero-card,.card,.list-card,.form-card,.info-panel,.step,.cta-band{padding:22px}
+      .section{padding:70px 0}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="Harbor Path home">
+        <div class="brand-mark">HP</div>
+        <div class="brand-copy">
+          <strong>Harbor Path</strong>
+          <span>Virtual ABA therapy & autism support</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Page navigation">
+        <a href="#approach">Approach</a>
+        <a href="#fit">Good fit</a>
+        <a href="#process">How it works</a>
+        <a href="#get-started">Get started</a>
+        <a class="button button-outline" href="index.html">Back to home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Virtual care</div>
+          <h1>Virtual autism support accessible to New York families.</h1>
+          <p class="lede">Focused virtual ABA-informed support, caregiver coaching, and next-step planning designed for families who want expert help without the commute, wait, or giant intake maze.</p>
+          <ul class="hero-points">
+            <li>
+              <span class="check">✓</span>
+              <div><strong>Accessible statewide</strong><br />Secure virtual visits can make it easier to get support from home, especially for families balancing school, work, and long travel times.</div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div><strong>Fast first step</strong><br />Connect with our team to see whether a virtual model is a fit before you get pulled into a long, confusing intake process.</div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div><strong>Clear payment path</strong><br />Private-pay can launch quickly. Insurance and Medicaid pathways should only be offered through the properly licensed New York clinical setup when available.</div>
+            </li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#get-started">Get started</a>
+            <a class="button button-secondary" href="#process">See how it works</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="What this page is built to sell">
+          <h3>A focused, realistic virtual offer.</h3>
+          <p>This page is designed to help Harbor Path test demand for virtual autism support without overpromising a giant statewide clinic on day one.</p>
+          <div class="mini-grid">
+            <div class="mini-item">
+              <strong>Best launch wedge</strong>
+              <span>Caregiver coaching, virtual intake, focused treatment planning, and high-trust follow-up.</span>
+            </div>
+            <div class="mini-item">
+              <strong>Clinical lane</strong>
+              <span>ABA services in New York should be delivered by or through the properly licensed clinical entity.</span>
+            </div>
+            <div class="mini-item">
+              <strong>What families want</strong>
+              <span>Quick answers, easier access, simpler scheduling, and confidence that someone will actually call them back.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="wrap">
+        <div class="section-intro">
+          <div class="eyebrow">Our approach</div>
+          <h2>What virtual support can actually include.</h2>
+          <p>You do not need to copy a venture-backed startup feature for feature. The strongest Harbor Path version is a narrower, more believable offer that gives families faster access and a more personal experience.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">◎</div>
+            <h3>Virtual intake & assessment</h3>
+            <p>Start with a structured fit call, goals review, history gathering, and a plan for what should happen next instead of sending families into a dead-end form.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Caregiver coaching</h3>
+            <p>Parent and caregiver training is one of the strongest virtual offerings because skills can be practiced where daily routines already happen.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">□</div>
+            <h3>Focused therapy goals</h3>
+            <p>Use virtual care for a focused model: a few socially significant goals at a time, regular reporting, and real carryover into home life.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">⌂</div>
+            <h3>Home-based routines</h3>
+            <p>Virtual care works especially well when the family wants support around routines, communication, flexibility, safety habits, and daily living skills.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">↺</div>
+            <h3>School and care coordination</h3>
+            <p>With parent permission, Harbor Path can help families turn recommendations into clear next steps across home, school, and community.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">✦</div>
+            <h3>High-touch follow-through</h3>
+            <p>This is your advantage over large telehealth brands: faster replies, founder-level communication, and a local New York feel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted-block" id="fit">
+      <div class="wrap">
+        <div class="section-intro">
+          <div class="eyebrow">Service fit</div>
+          <h2>When virtual care is a strong fit.</h2>
+          <p>Virtual support is real care, but it is not the right first format for every family. The fastest way to build trust is to say that clearly.</p>
+        </div>
+        <div class="split">
+          <article class="list-card good">
+            <h3>Good fit</h3>
+            <ul class="list">
+              <li><span class="list-badge">✓</span><span>Caregivers want coaching, structure, and practical strategies they can use during everyday routines.</span></li>
+              <li><span class="list-badge">✓</span><span>The child can tolerate short on-screen interaction, or the caregiver can serve as the in-person support during sessions.</span></li>
+              <li><span class="list-badge">✓</span><span>The main goals are communication, behavior support, routines, flexibility, parent training, and focused skill building.</span></li>
+              <li><span class="list-badge">✓</span><span>The family wants faster access than waiting months for a traditional in-home slot.</span></li>
+              <li><span class="list-badge">✓</span><span>The plan is a focused model, not a giant promise of every service for every case.</span></li>
+            </ul>
+          </article>
+          <article class="list-card watch">
+            <h3>May need hybrid or in-person first</h3>
+            <ul class="list">
+              <li><span class="list-badge">!</span><span>Very young children who need hands-on support throughout the session and do not yet benefit from caregiver-mediated work.</span></li>
+              <li><span class="list-badge">!</span><span>Cases with significant aggression, elopement, or safety concerns that need in-person environmental control.</span></li>
+              <li><span class="list-badge">!</span><span>Families expecting a heavy technician-hours model right away rather than focused BCBA/LBA-guided care.</span></li>
+              <li><span class="list-badge">!</span><span>Situations where licensure, payer contracting, or clinical ownership structure is not yet properly set up.</span></li>
+              <li><span class="list-badge">!</span><span>Families who need a higher-acuity care model than a virtual-first startup can safely deliver on day one.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-intro">
+          <div class="eyebrow">The process</div>
+          <h2>How Harbor Path can make this feel simple.</h2>
+          <p>The cleaner model is a fast virtual front door, then clinical delivery through the right New York setup. That is easier to sell and easier to operate.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01</span>
+            <h3>Intro call</h3>
+            <p>Start with a short phone or video conversation to understand the family’s goals, urgency, and whether virtual support is a good fit.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">02</span>
+            <h3>Clinical fit review</h3>
+            <p>Confirm diagnosis, service goals, payment path, and what part Harbor Path handles versus what the licensed clinical partner handles.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">03</span>
+            <h3>Assessment & plan</h3>
+            <p>Create a focused treatment plan around the few goals that matter most instead of overwhelming the family with a giant program.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">04</span>
+            <h3>Start support</h3>
+            <p>Begin recurring virtual sessions, caregiver coaching, reporting, and next-step coordination from a single simple care path.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-band">
+          <div>
+            <h3>My recommendation: lead with “Virtual ABA Therapy & Autism Support.”</h3>
+            <p>It is clearer and warmer than “Remote Autism Care & ABA Therapy.” “Remote” sounds operational. “Virtual” sounds more natural for families and matches what they already search for.</p>
+          </div>
+          <a class="button button-light" href="#get-started">Build around this offer</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted-block" id="get-started">
+      <div class="wrap">
+        <div class="section-intro">
+          <div class="eyebrow">Get started</div>
+          <h2>Start with a simple inquiry form.</h2>
+          <p>This version is intentionally test-friendly. It looks real, but the submit button runs in demo mode so you can review the experience before wiring it to Formspree, Airtable, HubSpot, or your CRM.</p>
+        </div>
+
+        <div class="form-shell">
+          <aside class="info-panel">
+            <h3>What to ask for first</h3>
+            <p>For an early launch, I would ask families for enough information to qualify fit quickly — but not so much that the form feels clinical or overwhelming.</p>
+            <div class="form-meta">
+              <span class="pill">Fast follow-up</span>
+              <span class="pill">Phone-friendly</span>
+              <span class="pill">Founder-led trust</span>
+            </div>
+            <ul class="list">
+              <li><span class="list-badge">✓</span><span>Caregiver name and best contact info</span></li>
+              <li><span class="list-badge">✓</span><span>Child age and location in New York</span></li>
+              <li><span class="list-badge">✓</span><span>Main support need and urgency</span></li>
+              <li><span class="list-badge">✓</span><span>Insurance status or private-pay interest</span></li>
+              <li><span class="list-badge">✓</span><span>Best times for a callback</span></li>
+            </ul>
+            <p class="fine-print">Public-page note: this copy avoids claiming that you already accept all major insurance carriers, because your current Harbor Path site is explicitly non-clinical and says clinical services are handled separately when available.</p>
+          </aside>
+
+          <div class="form-card">
+            <h3>Get started</h3>
+            <p>Tell us a little about your family and we’ll reach out with next steps.</p>
+
+            <form id="virtual-intake-form">
+              <div class="grid-2">
+                <div class="field">
+                  <label for="firstName">Caregiver first name</label>
+                  <input id="firstName" name="firstName" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="lastName">Caregiver last name</label>
+                  <input id="lastName" name="lastName" type="text" required />
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input id="email" name="email" type="email" required />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="field">
+                  <label for="location">Borough / county / town</label>
+                  <input id="location" name="location" type="text" placeholder="Brooklyn, Queens, Nassau, Suffolk..." />
+                </div>
+                <div class="field">
+                  <label for="childAge">Child age</label>
+                  <select id="childAge" name="childAge">
+                    <option value="">Select age range</option>
+                    <option>18 months–3 years</option>
+                    <option>4–6 years</option>
+                    <option>7–10 years</option>
+                    <option>11–14 years</option>
+                    <option>15–21 years</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="field">
+                  <label for="supportNeed">What kind of support are you looking for?</label>
+                  <select id="supportNeed" name="supportNeed">
+                    <option value="">Choose one</option>
+                    <option>Virtual ABA therapy</option>
+                    <option>Caregiver coaching</option>
+                    <option>Assessment / next-step planning</option>
+                    <option>School coordination support</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="paymentPath">Payment path</label>
+                  <select id="paymentPath" name="paymentPath">
+                    <option value="">Choose one</option>
+                    <option>Private pay</option>
+                    <option>Commercial insurance</option>
+                    <option>Medicaid</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="field">
+                  <label for="contactTime">Best time to reach you</label>
+                  <select id="contactTime" name="contactTime">
+                    <option value="">Choose one</option>
+                    <option>Weekday mornings</option>
+                    <option>Weekday afternoons</option>
+                    <option>Weekday evenings</option>
+                    <option>Saturday</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="urgency">How soon are you hoping to start?</label>
+                  <select id="urgency" name="urgency">
+                    <option value="">Choose one</option>
+                    <option>As soon as possible</option>
+                    <option>Within 2–4 weeks</option>
+                    <option>Within 1–2 months</option>
+                    <option>Just exploring options</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="notes">Anything you want us to know?</label>
+                <textarea id="notes" name="notes" placeholder="Share your goals, diagnosis status, or the biggest challenge you want help with."></textarea>
+              </div>
+
+              <button class="button button-primary" type="submit">Submit</button>
+              <div id="form-status" class="status" aria-live="polite"></div>
+              <p class="fine-print">Demo mode only. Replace the JavaScript action with your real form endpoint before publishing. A simple next step is Formspree, HubSpot, or Airtable automation.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-intro">
+          <div class="eyebrow">FAQ</div>
+          <h2>Questions families will ask right away.</h2>
+          <p>A page like this converts better when you answer the obvious concerns before the family has to ask.</p>
+        </div>
+        <div class="faq">
+          <article class="card">
+            <h3>Is virtual ABA right for every child?</h3>
+            <p>No. Some families are a great fit for virtual caregiver coaching or focused therapy, while others need a hybrid or in-person-first model. Saying that clearly builds trust.</p>
+          </article>
+          <article class="card">
+            <h3>Do you accept insurance?</h3>
+            <p>Only say yes when it is really true. Until payer contracts and the clinical structure are live, use wording like “ask about current payment options and partner-based insurance pathways.”</p>
+          </article>
+          <article class="card">
+            <h3>Do you work outside NYC?</h3>
+            <p>Yes, if your licensed clinical setup supports telepractice across New York. Until you are truly multi-state, avoid saying “everywhere” on the public page.</p>
+          </article>
+          <article class="card">
+            <h3>Will this replace in-person services?</h3>
+            <p>Sometimes yes, sometimes no. The best framing is that virtual support can be the right first step, the full model for some families, or part of a broader care plan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>Harbor Path • Bellport, NY • Virtual autism support planning page</div>
+      <div>This draft is structured to test demand without making clinical or insurance claims that are not ready yet.</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('virtual-intake-form');
+    const statusEl = document.getElementById('form-status');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const firstName = document.getElementById('firstName').value.trim();
+      statusEl.textContent = firstName
+        ? `Demo mode: thanks, ${firstName}. The form is working visually. Connect your real intake endpoint before going live.`
+        : 'Demo mode: the form is working visually. Connect your real intake endpoint before going live.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
