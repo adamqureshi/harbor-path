@@ -1,26 +1,24 @@
-# Harbor Path non-clinical page
+# Harbor Path clean repo
 
 Files:
 - `index.html`
 - `styles.css`
 - `script.js`
+- `virtual.html`
+- `thank-you.html`
+- `FORM_SETUP.md`
 
-## Use this version for
-A non-clinical Long Island landing page focused on:
-- IEP support
-- CPSE / CSE meeting help
-- parent advocacy
-- local network interest
+## What changed
+- fixed the broken `Virtual ABA Therapy` button in `index.html`
+- replaced the strategy-style copy in `virtual.html` with consumer-facing copy
+- made the form ready for Formspree with a placeholder endpoint
+- added `thank-you.html` for post-submit confirmation
 
 ## Before you deploy
-Replace these Formspree placeholders in `index.html`:
-- `REPLACE_PARENT_SUPPORT_ID`
-- `REPLACE_NETWORK_ID`
-
-## Upload to GitHub
-You can either:
-1. replace the files in your current `harbor-path` repo, or
-2. create a second repo such as `harbor-path-advocate` if you want to test a separate page.
+1. Replace the two Formspree placeholders already used in `index.html`.
+2. Replace `FORM_ENDPOINT_HERE` in `virtual.html` with your Formspree form ID.
+3. Set your Formspree redirect to `/thank-you.html`.
+4. Test one live submission.
 
 ## Notes
-This version avoids clinical claims and keeps the page in a non-clinical parent-support lane.
+This version keeps the public intake form light and avoids asking for highly sensitive information on the first page.
